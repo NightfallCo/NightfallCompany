@@ -41,7 +41,7 @@
 
         /* Animações de sumir e aparecer */
         .fade-out {
-            animation: fadeOut 1s forwards;
+            animation: fadeOut 2s forwards;
         }
 
         @keyframes fadeOut {
@@ -53,6 +53,7 @@
         .headphones-img {
             width: 150px;
             margin-bottom: 20px;
+            opacity: 0;
             animation: showImage 2s ease-in-out forwards;
         }
 
@@ -66,6 +67,7 @@
             font-size: 24px;
             font-weight: bold;
             animation: textAppear 2s forwards;
+            opacity: 0;
         }
 
         @keyframes textAppear {
@@ -139,36 +141,47 @@
         window.onload = () => {
             const container = document.getElementById('content');
 
-            // Fase 1: 'Melhor com fones de ouvido' desaparecendo
+            // Fase 1: A imagem e o texto aparecem
+            setTimeout(() => {
+                document.querySelector('.headphones-img').style.opacity = '1';
+                document.getElementById('text1').style.opacity = '1';
+            }, 500); // Animações de aparecer logo ao carregar
+
+            // Fase 2: A mensagem "Melhor com fones de ouvido" desaparece
             setTimeout(() => {
                 document.getElementById('text1').classList.add('fade-out');
             }, 3000);
 
-            // Fase 2: 'Made by Guilufy' aparecendo
+            // Fase 3: A imagem dos fones desaparece após o texto
+            setTimeout(() => {
+                document.querySelector('.headphones-img').classList.add('fade-out');
+            }, 3500);
+
+            // Fase 4: 'Made By Guilufy' aparece
             setTimeout(() => {
                 const newText = document.createElement('div');
                 newText.classList.add('text');
                 newText.textContent = 'Made By Guilufy';
                 container.appendChild(newText);
-            }, 4000);
+            }, 5000);
 
-            // Fase 3: 'NightfallCO' aparecendo
+            // Fase 5: 'NightfallCO' aparece
             setTimeout(() => {
                 const nightfallText = document.createElement('div');
                 nightfallText.classList.add('text');
                 nightfallText.textContent = 'NightfallCO';
                 container.appendChild(nightfallText);
-            }, 7000);
+            }, 8000);
 
-            // Fase 4: Site sem animações e conteúdo fixo
+            // Fase 6: Texto final
             setTimeout(() => {
                 const finalText = document.createElement('div');
                 finalText.classList.add('final-text');
                 finalText.textContent = 'NightfallCO - O futuro da tecnologia';
                 container.appendChild(finalText);
-            }, 10000);
+            }, 11000);
 
-            // Fase 5: Descrição dos feitos de Minecraft e programação
+            // Fase 7: Descrição do site
             setTimeout(() => {
                 const description = document.createElement('div');
                 description.classList.add('description');
@@ -177,9 +190,9 @@
                     Além disso, somos especialistas em programação de jogos, com um foco em proporcionar experiências imersivas e inovadoras.
                 `;
                 container.appendChild(description);
-            }, 13000);
+            }, 14000);
 
-            // Fase 6: Links para outras partes do site
+            // Fase 8: Links para outras partes
             setTimeout(() => {
                 const link1 = document.createElement('a');
                 link1.classList.add('links');
@@ -193,7 +206,7 @@
 
                 container.appendChild(link1);
                 container.appendChild(link2);
-            }, 16000);
+            }, 17000);
         }
     </script>
 </body>
