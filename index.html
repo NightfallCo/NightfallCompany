@@ -68,11 +68,29 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Estilo final do site */
-        .final-text {
-            font-size: 30px;
+        /* Estilo para o texto "NightfallCO" */
+        .nightfallCO {
+            font-size: 40px;
             color: #00aaff;
             margin-top: 50px;
+            opacity: 0;
+            animation: nightfallCOAppear 2s forwards;
+        }
+
+        @keyframes nightfallCOAppear {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilo final do site */
+        .final-text {
+            font-size: 50px;
+            color: #00aaff;
+            position: absolute;
+            top: 10%;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
             animation: finalTextAppear 2s forwards;
         }
 
@@ -89,6 +107,7 @@
             width: 80%;
             margin-left: auto;
             margin-right: auto;
+            text-align: center;
         }
 
     </style>
@@ -126,21 +145,21 @@
                 headphonesImage.style.opacity = '0'; // Usando diretamente o opacity para desaparecer
             }, 3500);
 
-            // Fase 4: 'NightfallCO' aparece
+            // Fase 4: "NightfallCO" aparece no centro
             setTimeout(() => {
-                const nightfallText = document.createElement('div');
-                nightfallText.classList.add('text');
-                nightfallText.textContent = 'NightfallCO';
-                container.appendChild(nightfallText);
-            }, 5000);
+                const nightfallCO = document.createElement('div');
+                nightfallCO.classList.add('nightfallCO');
+                nightfallCO.textContent = 'NightfallCO';
+                container.appendChild(nightfallCO);
+            }, 4000);
 
-            // Fase 5: 'NightfallCO' desaparece
+            // Fase 5: "NightfallCO" desaparece
             setTimeout(() => {
-                const nightfallText = document.querySelector('.text');
-                nightfallText.style.opacity = '0'; // Usando diretamente o opacity para desaparecer
-            }, 8000);
+                const nightfallCO = document.querySelector('.nightfallCO');
+                nightfallCO.style.opacity = '0'; // Usando diretamente o opacity para desaparecer
+            }, 7000);
 
-            // Fase 6: A página se torna estática com o nome "NightfallCompany"
+            // Fase 6: "NightfallCompany" aparece no topo com a descrição
             setTimeout(() => {
                 container.innerHTML = ''; // Limpa o conteúdo anterior
                 const finalText = document.createElement('div');
@@ -153,7 +172,7 @@
                 description.classList.add('description');
                 description.textContent = 'Uma empresa especializada em soluções criativas e inovadoras para servidores de Minecraft.';
                 container.appendChild(description);
-            }, 10000);  // Todo o conteúdo final aparecerá após 10 segundos.
+            }, 8000);  // Todo o conteúdo final aparecerá após 8 segundos.
         }
     </script>
 </body>
