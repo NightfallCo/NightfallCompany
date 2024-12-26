@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NightfallCO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Fonte do Minecraft -->
+    <style>
+        /* Resetando margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Container principal */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            flex-direction: column;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s;
+        }
+
+        /* Animação de Fade In */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Animações de sumir e aparecer */
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Estilo da imagem dos fones */
+        .headphones-img {
+            width: 150px;
+            margin-bottom: 20px;
+            animation: showImage 2s ease-in-out forwards;
+        }
+
+        @keyframes showImage {
+            0% { opacity: 0; transform: scale(0); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Texto principal */
+        .text {
+            font-size: 24px;
+            font-weight: bold;
+            animation: textAppear 2s forwards;
+        }
+
+        @keyframes textAppear {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilo final do site */
+        .final-text {
+            font-size: 30px;
+            color: #00aaff;
+            margin-top: 50px;
+            animation: finalTextAppear 2s forwards;
+        }
+
+        @keyframes finalTextAppear {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Estilo para o texto adicional */
+        .description {
+            font-size: 20px;
+            color: #fff;
+            margin-top: 30px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            animation: descriptionAppear 2s forwards;
+        }
+
+        @keyframes descriptionAppear {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Links para outras partes */
+        .links {
+            margin-top: 40px;
+            font-size: 20px;
+            color: #00aaff;
+            text-decoration: none;
+            display: block;
+            animation: linksAppear 2s forwards;
+        }
+
+        .links:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes linksAppear {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Imagem dos fones -->
+        <img src="https://via.placeholder.com/150x150.png?text=Fones" alt="Fones de ouvido" class="headphones-img">
+        
+        <!-- Texto inicial -->
+        <div id="text1" class="text">
+            Melhor com fones de ouvido
+        </div>
+    </div>
+
+    <script>
+        // Função para trocar os textos e imagens com animações
+        window.onload = () => {
+            // Fase 1: 'Melhor com fones de ouvido' desaparecendo
+            setTimeout(() => {
+                document.getElementById('text1').classList.add('fade-out');
+            }, 3000);
+
+            // Fase 2: 'Made by Guilufy' aparecendo
+            setTimeout(() => {
+                const newText = document.createElement('div');
+                newText.classList.add('text');
+                newText.textContent = 'Made By Guilufy';
+                document.body.appendChild(newText);
+            }, 4000);
+
+            // Fase 3: 'NightfallCO' aparecendo
+            setTimeout(() => {
+                const nightfallText = document.createElement('div');
+                nightfallText.classList.add('text');
+                nightfallText.textContent = 'NightfallCO';
+                document.body.appendChild(nightfallText);
+            }, 7000);
+
+            // Fase 4: Site sem animações e conteúdo fixo
+            setTimeout(() => {
+                const finalText = document.createElement('div');
+                finalText.classList.add('final-text');
+                finalText.textContent = 'NightfallCO - O futuro da tecnologia';
+                document.body.appendChild(finalText);
+            }, 10000);
+
+            // Fase 5: Descrição dos feitos de Minecraft e programação
+            setTimeout(() => {
+                const description = document.createElement('div');
+                description.classList.add('description');
+                description.innerHTML = `
+                    A NightfallCO é especializada em servidores de Minecraft, oferecendo soluções gratuitas e estáveis para a comunidade. 
+                    Além disso, somos especialistas em programação de jogos, com um foco em proporcionar experiências imersivas e inovadoras.
+                `;
+                document.body.appendChild(description);
+            }, 13000);
+
+            // Fase 6: Links para outras partes do site
+            setTimeout(() => {
+                const link1 = document.createElement('a');
+                link1.classList.add('links');
+                link1.href = "#";
+                link1.textContent = "NightfallHost - Minecraft Server";
+
+                const link2 = document.createElement('a');
+                link2.classList.add('links');
+                link2.href = "#";
+                link2.textContent = "Outros Projetos da NightfallCO";
+
+                document.body.appendChild(link1);
+                document.body.appendChild(link2);
+            }, 16000);
+        }
+    </script>
+</body>
+</html>
