@@ -42,16 +42,6 @@
             100% { opacity: 1; }
         }
 
-        /* Animações de sumir e aparecer */
-        .fade-out {
-            animation: fadeOut 2s forwards;
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
         /* Estilo da imagem dos fones */
         .headphones-img {
             width: 150px;
@@ -128,12 +118,12 @@
 
             // Fase 2: A mensagem "Melhor com fones de ouvido" desaparece
             setTimeout(() => {
-                text1.classList.add('fade-out');
+                text1.style.opacity = '0'; // Usando diretamente o opacity para desaparecer
             }, 3000);
 
             // Fase 3: A imagem dos fones desaparece após o texto
             setTimeout(() => {
-                headphonesImage.classList.add('fade-out');
+                headphonesImage.style.opacity = '0'; // Usando diretamente o opacity para desaparecer
             }, 3500);
 
             // Fase 4: 'NightfallCO' aparece
@@ -147,7 +137,7 @@
             // Fase 5: 'NightfallCO' desaparece
             setTimeout(() => {
                 const nightfallText = document.querySelector('.text');
-                nightfallText.classList.add('fade-out');
+                nightfallText.style.opacity = '0'; // Usando diretamente o opacity para desaparecer
             }, 8000);
 
             // Fase 6: A página se torna estática com o nome "NightfallCompany"
