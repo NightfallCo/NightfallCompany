@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NightfallCO</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Fonte do Minecraft -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         /* Resetando margens e padding */
         * {
@@ -124,9 +124,9 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="content">
         <!-- Imagem dos fones -->
-        <img src="https://via.placeholder.com/150x150.png?text=Fones" alt="Fones de ouvido" class="headphones-img">
+        <img src="https://imgs.search.brave.com/ecDDCY0HOWW4YIJiJsZrYjWwqVe77LvpzrA8arRfBEg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudmV4ZWxzLmNv/bS9tZWRpYS91c2Vy/cy8zLzEzMTkxMC9p/c29sYXRlZC9wcmV2/aWV3Lzc4MDEyNGUx/OGE5YTRjYTVjMWM1/YWUzYzRmYzliYzc2/LWZvbmUtZGUtb3V2/aWRvLXJldHJvLW1v/ZGVybm8ucG5n" alt="Fones de ouvido" class="headphones-img">
         
         <!-- Texto inicial -->
         <div id="text1" class="text">
@@ -137,6 +137,8 @@
     <script>
         // Função para trocar os textos e imagens com animações
         window.onload = () => {
+            const container = document.getElementById('content');
+
             // Fase 1: 'Melhor com fones de ouvido' desaparecendo
             setTimeout(() => {
                 document.getElementById('text1').classList.add('fade-out');
@@ -147,7 +149,7 @@
                 const newText = document.createElement('div');
                 newText.classList.add('text');
                 newText.textContent = 'Made By Guilufy';
-                document.body.appendChild(newText);
+                container.appendChild(newText);
             }, 4000);
 
             // Fase 3: 'NightfallCO' aparecendo
@@ -155,7 +157,7 @@
                 const nightfallText = document.createElement('div');
                 nightfallText.classList.add('text');
                 nightfallText.textContent = 'NightfallCO';
-                document.body.appendChild(nightfallText);
+                container.appendChild(nightfallText);
             }, 7000);
 
             // Fase 4: Site sem animações e conteúdo fixo
@@ -163,7 +165,7 @@
                 const finalText = document.createElement('div');
                 finalText.classList.add('final-text');
                 finalText.textContent = 'NightfallCO - O futuro da tecnologia';
-                document.body.appendChild(finalText);
+                container.appendChild(finalText);
             }, 10000);
 
             // Fase 5: Descrição dos feitos de Minecraft e programação
@@ -174,7 +176,7 @@
                     A NightfallCO é especializada em servidores de Minecraft, oferecendo soluções gratuitas e estáveis para a comunidade. 
                     Além disso, somos especialistas em programação de jogos, com um foco em proporcionar experiências imersivas e inovadoras.
                 `;
-                document.body.appendChild(description);
+                container.appendChild(description);
             }, 13000);
 
             // Fase 6: Links para outras partes do site
@@ -189,8 +191,8 @@
                 link2.href = "#";
                 link2.textContent = "Outros Projetos da NightfallCO";
 
-                document.body.appendChild(link1);
-                document.body.appendChild(link2);
+                container.appendChild(link1);
+                container.appendChild(link2);
             }, 16000);
         }
     </script>
