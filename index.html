@@ -8,53 +8,67 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #000; /* Cor de fundo preta */
+            background-color: #000; /* Fundo preto */
             color: #fff; /* Texto branco */
+            overflow-x: hidden;
         }
-        header {
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-out {
+            animation: fadeOut 2s ease-in-out forwards;
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        header, section, footer {
             text-align: center;
             padding: 50px;
+        }
+        header {
             background: linear-gradient(135deg, #1a1a1a, #333);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
         }
         header h1 {
             font-size: 2.5rem;
-            margin: 0;
         }
-        header p {
-            font-size: 1.2rem;
+        .container {
+            margin-top: 150px; /* Espaço para header fixo */
         }
-        section {
-            padding: 50px;
-            text-align: center;
+        .hidden {
+            display: none;
         }
         .feature {
             padding: 20px;
-            margin: 20px 0;
+            background: #222;
             border-radius: 10px;
-            background-color: #222;
-        }
-        .feature h2 {
-            margin-bottom: 10px;
+            margin: 20px auto;
+            width: 80%;
         }
         footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #111;
+            background: #111;
             color: #888;
         }
         .btn {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            color: #fff;
-            background-color: #555;
-            border: none;
+            background: #555;
             border-radius: 5px;
-            cursor: pointer;
+            color: #fff;
             text-decoration: none;
+            cursor: pointer;
         }
         .btn:hover {
-            background-color: #777;
+            background: #777;
         }
     </style>
 </head>
@@ -63,19 +77,57 @@
         <h1>NightfallCO</h1>
         <p>Uma empresa de jogos</p>
     </header>
-    <section>
-        <div class="feature">
-            <h2>A melhor experiência em jogos</h2>
-            <p>Oferecemos o que há de melhor em desenvolvimento e suporte para gamers.</p>
-        </div>
-        <div class="feature">
-            <h2>Hospedagem especializada</h2>
-            <p>Seja para servidores de Minecraft ou outros jogos, conte com nossa qualidade.</p>
-        </div>
-        <a href="#culto" class="btn">Descubra a verdade</a>
-    </section>
+    <div class="container">
+        <section id="intro">
+            <h2 class="fade-in">Melhor com fones de ouvido</h2>
+        </section>
+        <section id="main" class="hidden">
+            <div class="feature fade-in">
+                <h2>Bem-vindo à NightfallCO</h2>
+                <p>Oferecemos experiências incríveis em jogos e hospedagem de servidores.</p>
+            </div>
+            <div class="feature fade-in">
+                <h2>Nossa missão</h2>
+                <p>Trazer diversão, qualidade e suporte para todos os gamers.</p>
+            </div>
+            <a href="#culto" class="btn">Descubra mais</a>
+        </section>
+        <section id="culto" class="hidden">
+            <h2>Anotação 1</h2>
+            <p>Eu não aguento mais... Eu odeio esse lugar. Eu trabalho todos os dias sem parar e acredito que essa empresa seja fachada para algo maior. Os funcionários são tratados como lixo...</p>
+            <h2>Anotação 2</h2>
+            <p>As coisas estão ficando estranhas. Vi documentos que mencionam um culto antigo... algo sobre Cthulhu. Eles estão escondendo algo terrível.</p>
+            <h2>Anotação 3</h2>
+            <p>Não sei se vou conseguir sair daqui. Se você encontrou isso, saiba que a NightfallCO não é apenas uma empresa de jogos...</p>
+        </section>
+    </div>
     <footer>
         <p>© 2024 NightfallCO. Todos os direitos reservados.</p>
     </footer>
+    <script>
+        window.onload = function() {
+            const intro = document.getElementById('intro');
+            const main = document.getElementById('main');
+            const culto = document.getElementById('culto');
+
+            setTimeout(() => {
+                intro.classList.add('fade-out');
+                setTimeout(() => {
+                    intro.style.display = 'none';
+                    main.classList.remove('hidden');
+                    main.classList.add('fade-in');
+                }, 2000);
+            }, 3000);
+
+            document.querySelector('.btn').onclick = function() {
+                main.classList.add('fade-out');
+                setTimeout(() => {
+                    main.style.display = 'none';
+                    culto.classList.remove('hidden');
+                    culto.classList.add('fade-in');
+                }, 2000);
+            };
+        };
+    </script>
 </body>
 </html>
