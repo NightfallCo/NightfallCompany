@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NightfallCO</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Resetando margens e padding */
         * {
@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Roboto', sans-serif;
             background-color: #111;
             color: #fff;
             text-align: center;
@@ -28,12 +28,8 @@
 
         /* Container principal */
         .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
             opacity: 0;
-            animation: fadeIn 1s forwards 0.5s;
+            animation: fadeIn 2s forwards;
         }
 
         /* Animação de Fade In */
@@ -42,11 +38,20 @@
             100% { opacity: 1; }
         }
 
+        /* Animações de sumir e aparecer */
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
         /* Estilo da imagem dos fones */
         .headphones-img {
-            width: 150px;
-            margin-bottom: 20px;
-            opacity: 0;
+            width: 200px;
+            margin-bottom: 30px;
             animation: showImage 2s ease-in-out forwards;
         }
 
@@ -55,12 +60,11 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Texto principal */
+        /* Texto inicial */
         .text {
-            font-size: 24px;
+            font-size: 36px;
             font-weight: bold;
             animation: textAppear 2s forwards;
-            opacity: 0;
         }
 
         @keyframes textAppear {
@@ -68,29 +72,11 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Estilo para o texto "NightfallCO" */
-        .nightfallCO {
-            font-size: 40px;
-            color: #00aaff;
-            margin-top: 50px;
-            opacity: 0;
-            animation: nightfallCOAppear 2s forwards;
-        }
-
-        @keyframes nightfallCOAppear {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
         /* Estilo final do site */
         .final-text {
             font-size: 50px;
             color: #00aaff;
-            position: absolute;
-            top: 10%;
-            width: 100%;
-            text-align: center;
-            opacity: 0;
+            margin-top: 50px;
             animation: finalTextAppear 2s forwards;
         }
 
@@ -99,7 +85,7 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Estilo para o texto adicional */
+        /* Descrição sobre a empresa */
         .description {
             font-size: 20px;
             color: #fff;
@@ -107,12 +93,50 @@
             width: 80%;
             margin-left: auto;
             margin-right: auto;
-            text-align: center;
+            animation: descriptionAppear 2s forwards;
         }
 
+        @keyframes descriptionAppear {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Links para outras partes */
+        .links {
+            margin-top: 40px;
+            font-size: 20px;
+            color: #00aaff;
+            text-decoration: none;
+            display: block;
+            animation: linksAppear 2s forwards;
+        }
+
+        .links:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes linksAppear {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilo do texto "NightfallCompany" */
+        .nightfall-company {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 80px;
+            margin-top: 30px;
+            color: #00aaff;
+            animation: nightfallCompanyAppear 2s forwards;
+        }
+
+        @keyframes nightfallCompanyAppear {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
+
     <div class="container" id="content">
         <!-- Imagem dos fones -->
         <img src="https://imagensemoldes.com.br/wp-content/uploads/2020/06/Figura-Fone-de-Ouvido-PNG.png" alt="Fones de ouvido" class="headphones-img">
@@ -124,56 +148,60 @@
     </div>
 
     <script>
+        // Função para trocar os textos e imagens com animações
         window.onload = () => {
             const container = document.getElementById('content');
-            const text1 = document.getElementById('text1');
-            const headphonesImage = document.querySelector('.headphones-img');
 
-            // Fase 1: A imagem e o texto aparecem
+            // Fase 1: 'Melhor com fones de ouvido' desaparecendo
             setTimeout(() => {
-                headphonesImage.style.opacity = '1';
-                text1.style.opacity = '1';
-            }, 500);
-
-            // Fase 2: A mensagem "Melhor com fones de ouvido" desaparece
-            setTimeout(() => {
-                text1.style.opacity = '0'; // Usando diretamente o opacity para desaparecer
+                document.getElementById('text1').classList.add('fade-out');
             }, 3000);
 
-            // Fase 3: A imagem dos fones desaparece após o texto
+            // Fase 2: 'NightfallCO' aparecendo
             setTimeout(() => {
-                headphonesImage.style.opacity = '0'; // Usando diretamente o opacity para desaparecer
-            }, 3500);
-
-            // Fase 4: "NightfallCO" aparece no centro
-            setTimeout(() => {
-                const nightfallCO = document.createElement('div');
-                nightfallCO.classList.add('nightfallCO');
-                nightfallCO.textContent = 'NightfallCO';
-                container.appendChild(nightfallCO);
+                const nightfallText = document.createElement('div');
+                nightfallText.classList.add('text');
+                nightfallText.textContent = 'NightfallCO';
+                container.appendChild(nightfallText);
             }, 4000);
 
-            // Fase 5: "NightfallCO" desaparece
+            // Fase 3: 'NightfallCO' desaparecendo e 'NightfallCompany' aparecendo
             setTimeout(() => {
-                const nightfallCO = document.querySelector('.nightfallCO');
-                nightfallCO.style.opacity = '0'; // Usando diretamente o opacity para desaparecer
+                document.querySelector('.text').classList.add('fade-out');
+                const nightfallCompany = document.createElement('div');
+                nightfallCompany.classList.add('nightfall-company');
+                nightfallCompany.textContent = 'NightfallCompany';
+                container.appendChild(nightfallCompany);
             }, 7000);
 
-            // Fase 6: "NightfallCompany" aparece no topo com a descrição
+            // Fase 4: Descrição sobre a empresa
             setTimeout(() => {
-                container.innerHTML = ''; // Limpa o conteúdo anterior
-                const finalText = document.createElement('div');
-                finalText.classList.add('final-text');
-                finalText.textContent = 'NightfallCompany'; // Novo texto no topo
-                container.appendChild(finalText);
-
-                // Texto de descrição
                 const description = document.createElement('div');
                 description.classList.add('description');
-                description.textContent = 'Uma empresa especializada em soluções criativas e inovadoras para servidores de Minecraft.';
+                description.innerHTML = `
+                    A NightfallCO é especializada em servidores de Minecraft, oferecendo soluções gratuitas e estáveis para a comunidade. 
+                    Além disso, somos especialistas em programação de jogos, com um foco em proporcionar experiências imersivas e inovadoras.
+                `;
                 container.appendChild(description);
-            }, 8000);  // Todo o conteúdo final aparecerá após 8 segundos.
+            }, 10000);
+
+            // Fase 5: Links para outras partes do site
+            setTimeout(() => {
+                const link1 = document.createElement('a');
+                link1.classList.add('links');
+                link1.href = "#";
+                link1.textContent = "NightfallHost - Minecraft Server";
+
+                const link2 = document.createElement('a');
+                link2.classList.add('links');
+                link2.href = "#";
+                link2.textContent = "Outros Projetos da NightfallCO";
+
+                container.appendChild(link1);
+                container.appendChild(link2);
+            }, 13000);
         }
     </script>
+
 </body>
 </html>
