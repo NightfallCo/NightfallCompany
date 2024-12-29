@@ -1,133 +1,121 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NightfallCO - Uma empresa de jogos</title>
+    <title>NightfallCO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #000; /* Fundo preto */
-            color: #fff; /* Texto branco */
-            overflow-x: hidden;
-        }
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .fade-out {
-            animation: fadeOut 2s ease-in-out forwards;
-        }
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        header, section, footer {
-            text-align: center;
-            padding: 50px;
-        }
-        header {
-            background: linear-gradient(135deg, #1a1a1a, #333);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 10;
-        }
-        header h1 {
-            font-size: 2.5rem;
-        }
-        .container {
-            margin-top: 150px; /* Espaço para header fixo */
-        }
-        .hidden {
-            display: none;
-        }
-        .feature {
-            padding: 20px;
-            background: #222;
-            border-radius: 10px;
-            margin: 20px auto;
-            width: 80%;
-        }
-        footer {
-            background: #111;
-            color: #888;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #555;
-            border-radius: 5px;
+            font-family: 'Press Start 2P', cursive;
+            background-color: #111;
             color: #fff;
-            text-decoration: none;
-            cursor: pointer;
+            margin: 0;
+            overflow: hidden;
         }
-        .btn:hover {
-            background: #777;
+
+        .intro, .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .intro p {
+            font-size: 24px;
+            animation: fadeOut 2s forwards 3s;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .main-content {
+            display: none;
+            animation: fadeIn 2s forwards 5s;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        header {
+            background-color: #222;
+            padding: 20px;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .button {
+            padding: 15px 25px;
+            background-color: #00aaff;
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .hidden-corner {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>NightfallCO</h1>
-        <p>Uma empresa de jogos</p>
-    </header>
-    <div class="container">
-        <section id="intro">
-            <h2 class="fade-in">Melhor com fones de ouvido</h2>
-        </section>
-        <section id="main" class="hidden">
-            <div class="feature fade-in">
-                <h2>Bem-vindo à NightfallCO</h2>
-                <p>Oferecemos experiências incríveis em jogos e hospedagem de servidores.</p>
-            </div>
-            <div class="feature fade-in">
-                <h2>Nossa missão</h2>
-                <p>Trazer diversão, qualidade e suporte para todos os gamers.</p>
-            </div>
-            <a href="#culto" class="btn">Descubra mais</a>
-        </section>
-        <section id="culto" class="hidden">
-            <h2>Anotação 1</h2>
-            <p>Eu não aguento mais... Eu odeio esse lugar. Eu trabalho todos os dias sem parar e acredito que essa empresa seja fachada para algo maior. Os funcionários são tratados como lixo...</p>
-            <h2>Anotação 2</h2>
-            <p>As coisas estão ficando estranhas. Vi documentos que mencionam um culto antigo... algo sobre Cthulhu. Eles estão escondendo algo terrível.</p>
-            <h2>Anotação 3</h2>
-            <p>Não sei se vou conseguir sair daqui. Se você encontrou isso, saiba que a NightfallCO não é apenas uma empresa de jogos...</p>
-        </section>
+    <!-- Introdução -->
+    <div class="intro">
+        <p>Melhor com fones de ouvido</p>
     </div>
-    <footer>
-        <p>© 2024 NightfallCO. Todos os direitos reservados.</p>
-    </footer>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <header>
+            NightfallCO - Uma Empresa de Jogos
+        </header>
+        <div>
+            <h1>Bem-vindo à NightfallHost</h1>
+            <p>
+                Aqui na NightfallHost, oferecemos servidores de Minecraft otimizados, com alta performance e preços acessíveis para você e seus amigos jogarem sem preocupações.
+            </p>
+            <a href="#" class="button">Comece Agora</a>
+        </div>
+    </div>
+
+    <!-- Área de toque -->
+    <div class="hidden-corner" onclick="redirectToNotes()"></div>
+
     <script>
-        window.onload = function() {
-            const intro = document.getElementById('intro');
-            const main = document.getElementById('main');
-            const culto = document.getElementById('culto');
+        window.onload = () => {
+            const intro = document.querySelector('.intro');
+            const mainContent = document.querySelector('.main-content');
 
             setTimeout(() => {
-                intro.classList.add('fade-out');
-                setTimeout(() => {
-                    intro.style.display = 'none';
-                    main.classList.remove('hidden');
-                    main.classList.add('fade-in');
-                }, 2000);
-            }, 3000);
-
-            document.querySelector('.btn').onclick = function() {
-                main.classList.add('fade-out');
-                setTimeout(() => {
-                    main.style.display = 'none';
-                    culto.classList.remove('hidden');
-                    culto.classList.add('fade-in');
-                }, 2000);
-            };
+                intro.style.display = 'none';
+                mainContent.style.display = 'block';
+            }, 5000);
         };
+
+        function redirectToNotes() {
+            window.open('notes.html', '_blank');
+        }
     </script>
 </body>
 </html>
